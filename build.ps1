@@ -49,11 +49,6 @@ foreach {
         & $dotnet build "$_"
     }
 }
-# Run tests
-dir "*.Tests*" | where {$_.PsIsContainer} |
-foreach {
-    & $dotnet test "$_"
-}
 # Package all
 dir "Dapper*" | where {$_.PsIsContainer -and $_ -NotLike "*.Tests*" } |
 foreach {

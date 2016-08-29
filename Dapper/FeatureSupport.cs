@@ -19,6 +19,7 @@ namespace Dapper
         {
             string name = connection?.GetType().Name;
             if (string.Equals(name, "npgsqlconnection", StringComparison.OrdinalIgnoreCase)) return Postgres;
+            if (string.Equals(name, "profileddbconnection", StringComparison.OrdinalIgnoreCase)) return Postgres;
             return Default;
         }
         private FeatureSupport(bool arrays)
